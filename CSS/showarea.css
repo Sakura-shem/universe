@@ -51,3 +51,12 @@
 	margin-top:0.2rem;
 	margin-bottom:0.3rem;
 }
+
+.showarea ul{
+	margin-top: 0rem;
+	margin-bottom:rem;
+}
+
+.showarea li p{
+	text-indent:0px;
+}

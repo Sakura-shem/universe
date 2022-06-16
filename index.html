@@ -9,9 +9,20 @@
     </head>
     <body>
         <div class="slidebar">
-            <a class="home">Shem's Universe</a>
-            <a class="Label JLULife">JLU Life</a>
-            <a class="Label">HangZhou</a>
+            <a class="home">Shem's Universe </a>
+            <div class="Menu JLULife" id = "Menu0">
+                <div class="arrow" value = "0" ></div>
+                <div class="Label">JLU Life</div>
+            </div>
+            <div class="Menu HangZhou" id = "Menu1">
+                <div class="arrow" value = "0"></div>
+                <div class="Label">HangZhou</div>
+            </div>
+            <div class="Menu" id = "Menu2">
+                <div class="arrow"value = "0" ></div>
+                <div class="Label">聊备一格</div>
+                <!-- <div class= ""> -->
+            </div>
         </div>
         <div class="showarea">
             <h1 id="about">About</h1>
@@ -23,7 +34,25 @@
             <p>All photos or data are copyrighted.<br></p>
             <p>Contact: <a href="mailto: jinian6718@163.com">jinian6718@163.com</a></p>
         </div>
-        <script>    
+        <script>
+            $('.Menu').click(function(){
+                var Element0 = document.getElementById($(this).attr('id'));
+                var Element1 = document.getElementById($(this).attr('id')).firstElementChild;
+                if (Element1.getAttribute("value") == "0"){
+                    Element0.style.color = "rgb(217, 156, 87)";
+                    Element1.style.transform = "rotate(45deg)";
+                    Element1.style.left = "0";
+                    Element1.style.marginTop = "0.1rem";
+                    Element1.setAttribute('value', "1");
+                }
+                else{
+                    Element0.style.color = "rgb(112, 112, 112)";
+                    Element1.style.transform = "rotate(-45deg)";
+                    Element1.style.left = "0.3rem";
+                    Element1.style.marginTop = "0";
+                    Element1.setAttribute('value', "0");
+                }
+            });
             $(".home").click(function(){
                 $.ajax({url:"./pages/home.html",success:function(result){
                     $(".showarea").html("")
@@ -32,6 +61,12 @@
             });
             $(".JLULife").click(function(){
                 $.ajax({url:"./pages/JLULife.html",success:function(result){
+                    $(".showarea").html("")
+                    $(".showarea").html(result);
+                }});
+            });
+            $(".HangZhou").click(function(){
+                $.ajax({url:"./pages/HZ.html",success:function(result){
                     $(".showarea").html("")
                     $(".showarea").html(result);
                 }});

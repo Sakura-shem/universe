@@ -74,7 +74,7 @@ html{
     color: rgb(112, 112, 112);
 }
 
-.Label{
+.Menu{
     pointer-events: auto;
     margin-top:0.3rem;
     margin-left:0.3rem;
@@ -88,4 +88,51 @@ html{
     font-family: Lato;
     letter-spacing: 0px;
     color: rgb(112, 112, 112);
+}
+
+.Menu:hover {
+    color: rgb(217, 156, 87);
+}
+
+.Menu:hover .arrow {
+    opacity: 1;
+}
+
+.arrow {
+    box-sizing: border-box;
+    position: absolute;
+    transform: scale(0.7);
+    top: auto;
+    width: 22px;
+    height: 22px;
+    border: 2px solid transparent;
+    opacity: 0;
+}
+.arrow::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0.1rem;
+    height: 0.1rem;
+    bottom: 0.3rem;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+}
+
+#Menu0 .arrow, #Menu1 .arrow, #Menu2 .arrow{
+    transform: rotate(-45deg);
+    transition: all 0.3s ease-in-out;
+}
+
+.Label{
+    pointer-events: auto;
+    margin-left:0.1rem;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    display: block;
+    font-size: 0.2rem;
+    font-weight: 300;
+    font-family: Lato;
+    letter-spacing: 0px;
 }
