@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title> Shem's Universe </title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href = "./CSS/Universe.css">
+        <link rel="stylesheet" href = "./CSS/showarea.css">
+        <link rel="stylesheet" href = "./CSS/JlULife.css">
+        <script src="JS/Jquery.js"></script>
+    </head>
+    <body>
+        <div class="slidebar">
+            <a class="home">Shem's Universe</a>
+            <a class="Label JLULife">JLU Life</a>
+            <a class="Label">HangZhou</a>
+        </div>
+        <div class="showarea">
+            <h1 id="about">About</h1>
+            <p>This a little Universe belong to Shem.</p>
+            <h2 id="bio">Bio</h2>
+            <p>Hello, there is Shem, an undergraduate of Jilin University.<br></p>
+            <p>I'm a Fuji user who learning photography. You can find some photos here.<br></p>
+            <h2 id="license">License</h2>
+            <p>All photos or data are copyrighted.<br></p>
+            <p>Contact: <a href="mailto: jinian6718@163.com">jinian6718@163.com</a></p>
+        </div>
+        <script>    
+            $(".home").click(function(){
+                $.ajax({url:"./pages/home.html",success:function(result){
+                    $(".showarea").html("")
+                    $(".showarea").html(result);
+                }});
+            });
+            $(".JLULife").click(function(){
+                $.ajax({url:"./pages/JLULife.html",success:function(result){
+                    $(".showarea").html("")
+                    $(".showarea").html(result);
+                }});
+            });
+        </script>
+    </body>
+</html>
