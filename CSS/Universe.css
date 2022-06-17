@@ -67,14 +67,28 @@ html{
     cursor: pointer;
     user-select: none;
     display: block;
-    font-size: 0.3rem;
+    font-size: 0.4rem;
     font-weight: 400;
     font-family: Lato;
     letter-spacing: 0px;
     color: rgb(112, 112, 112);
 }
+.home:hover{
+    color: rgba(112, 112, 112, 0.5);
+    transition: all 0.5s ease-out;
+}
 
 .Menu{
+    color: rgb(112, 112, 112);
+}
+
+.MenuSelected, .MenuSelected .arrow{
+    color: rgb(217, 156, 87);
+    opacity: 1;
+}
+
+
+#JLULife, #HangZhou, #Menu2{
     pointer-events: auto;
     margin-top:0.3rem;
     margin-left:0.3rem;
@@ -83,46 +97,7 @@ html{
     cursor: pointer;
     user-select: none;
     display: block;
-    font-size: 0.2rem;
-    font-weight: 300;
-    font-family: Lato;
-    letter-spacing: 0px;
-    color: rgb(112, 112, 112);
-}
-
-.Menu:hover {
-    color: rgb(217, 156, 87);
-}
-
-.Menu:hover .arrow {
-    opacity: 1;
-}
-
-.arrow {
-    box-sizing: border-box;
-    position: absolute;
-    transform: scale(0.7);
-    top: auto;
-    width: 22px;
-    height: 22px;
-    border: 2px solid transparent;
-    opacity: 0;
-}
-.arrow::after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 0.1rem;
-    height: 0.1rem;
-    bottom: 0.3rem;
-    border-bottom: 2px solid;
-    border-right: 2px solid;
-}
-
-#Menu0 .arrow, #Menu1 .arrow, #Menu2 .arrow{
-    transform: rotate(-45deg);
-    transition: all 0.3s ease-in-out;
-}
+} 
 
 .Label{
     pointer-events: auto;
@@ -131,8 +106,38 @@ html{
     cursor: pointer;
     user-select: none;
     display: block;
-    font-size: 0.2rem;
+    font-size: 0.3rem;
     font-weight: 300;
     font-family: Lato;
     letter-spacing: 0px;
+}
+
+.MenuItem{
+    position: relative;
+    margin-left:0.4rem;
+    margin-top:0.1rem;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 300;
+    font-family: Lato;
+    font-size: 0.2rem;
+}
+
+.MenuItem::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0.05rem;
+    height: 0.05rem;
+    bottom: 0.05rem;
+    left:-0.1rem;
+    transform: rotate(-45deg);
+    border-bottom: 1.5px solid;
+    border-right: 1.5px solid;
+}
+
+.Label:hover, .MenuItem:hover{
+    color: rgb(217, 156, 87);
+    transition: all 0.3s ease-out;
 }

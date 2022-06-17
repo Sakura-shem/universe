@@ -10,18 +10,16 @@
     <body>
         <div class="slidebar">
             <a class="home">Shem's Universe </a>
-            <div class="Menu JLULife" id = "Menu0">
-                <div class="arrow" value = "0" ></div>
-                <div class="Label">JLU Life</div>
+            <div class="Menu" id = "JLULife">
+                <div class="Label" value = "JLULife">吉大生活 | JLU Life</div>
             </div>
-            <div class="Menu HangZhou" id = "Menu1">
-                <div class="arrow" value = "0"></div>
-                <div class="Label">HangZhou</div>
+            <div class="Menu" id = "HangZhou">
+                <div class="Label" value = "HZ-Digest">杭州 | HangZhou</div>
+                <div class="MenuItem" value = "HZ-Digest">摘要 | Digest</div>
+                <div class="MenuItem" value = "HZ-Photos">照片 | Photos</div>
             </div>
             <div class="Menu" id = "Menu2">
-                <div class="arrow"value = "0" ></div>
                 <div class="Label">聊备一格</div>
-                <!-- <div class= ""> -->
             </div>
         </div>
         <div class="showarea">
@@ -36,22 +34,11 @@
         </div>
         <script>
             $('.Menu').click(function(){
-                var Element0 = document.getElementById($(this).attr('id'));
-                var Element1 = document.getElementById($(this).attr('id')).firstElementChild;
-                if (Element1.getAttribute("value") == "0"){
-                    Element0.style.color = "rgb(217, 156, 87)";
-                    Element1.style.transform = "rotate(45deg)";
-                    Element1.style.left = "0";
-                    Element1.style.marginTop = "0.1rem";
-                    Element1.setAttribute('value', "1");
-                }
-                else{
-                    Element0.style.color = "rgb(112, 112, 112)";
-                    Element1.style.transform = "rotate(-45deg)";
-                    Element1.style.left = "0.3rem";
-                    Element1.style.marginTop = "0";
-                    Element1.setAttribute('value', "0");
-                }
+                // 将其他 div value 归 0
+                var NodeList = Array.prototype.slice.call(document.querySelectorAll(".Menu")).concat(Array.prototype.slice.call(document.querySelectorAll(".MenuSelected")));
+                // 删除列表最后一个
+                    // 判断 id
+                // 对应 div 调整 
             });
             $(".home").click(function(){
                 $.ajax({url:"./pages/home.html",success:function(result){
@@ -59,14 +46,16 @@
                     $(".showarea").html(result);
                 }});
             });
-            $(".JLULife").click(function(){
-                $.ajax({url:"./pages/JLULife.html",success:function(result){
+            $(".Label").click(function(){
+                var value = $(this).attr("value");
+                $.ajax({url:"./pages/"+value+".html",success:function(result){
                     $(".showarea").html("")
                     $(".showarea").html(result);
                 }});
             });
-            $(".HangZhou").click(function(){
-                $.ajax({url:"./pages/HZ.html",success:function(result){
+            $(".MenuItem").click(function(){
+                var value = $(this).attr("value");
+                $.ajax({url:"./pages/"+value+".html",success:function(result){
                     $(".showarea").html("")
                     $(".showarea").html(result);
                 }});
